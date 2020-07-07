@@ -1,7 +1,6 @@
 variable "region" {
     description = "The AWS region to deploy this module in"
     type = string
-    default = "eu-west-1"
 }
 
 variable "cidr" {
@@ -17,7 +16,7 @@ variable "aws_account_name" {
 variable "instance_size" {
     description = "AWS Instance size for the Aviatrix gateways
     type = string
-    default = "t2.micro"
+    default = "t3.small"
 }
 
 variable "ha_gw" {
