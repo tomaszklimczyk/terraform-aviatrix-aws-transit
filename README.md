@@ -35,7 +35,7 @@ The following variables are optional:
 
 key | default | value
 --- | --- | ---
-instance_size | t2.micro | Size of the transit gateway instances
+instance_size | t3.small | Size of the transit gateway instances
 ha_gw | true | Set to true to false te deploy a single transit GW.
 
 ### Outputs
