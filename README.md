@@ -36,7 +36,7 @@ The following variables are optional:
 key | default | value
 --- | --- | ---
 instance_size | t2.micro | Size of the transit gateway instances
-ha_gw | false | Set to true to enable deploying an HA GW
+ha_gw | true | Set to true to false te deploy a single transit GW.
 
 ### Outputs
 This module will return the following objects:
