@@ -13,7 +13,7 @@ with ha_gw set to false, the following will be deployed:
 ### Usage Example
 ```
 module "transit_aws_1" {
-  source  = "git::https://https://github.com/terraform-aviatrix-modules/terraform-aviatrix-aws-transit.git?ref=v1.0.0"
+  source  = "git::https://github.com/terraform-aviatrix-modules/terraform-aviatrix-aws-transit.git?ref=v1.0.0"
 
   cidr = "10.1.0.0/20"
   region = "eu-west-1"
