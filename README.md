@@ -1,7 +1,7 @@
 # Module Aviatrix Transit VPC for AWS
 
 ### Description
-This module deploys a VPC and an Aviatrix transit gateway. Defining the Aviatrix Terraform provider is assumed upstream and is not part of this module.
+This module deploys a VPC and a set of Aviatrix transit gateways.
 
 ### Diagram
 <img src="https://dhagens-repository-images-public.s3.eu-central-1.amazonaws.com/terraform-aviatrix-aws-transit/module-aviatrix-transit-vpc-for-aws-ha.png"  height="250">
