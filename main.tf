@@ -21,9 +21,9 @@ resource "aviatrix_transit_gateway" "single" {
   account_name       = var.aws_account_name
   subnet             = aviatrix_vpc.default.subnets[4].cidr
   connected_transit  = true
-  tag_list = [
-    "Auto-StartStop-Enabled:",
-  ]
+  insane_mode        = var.insane_mode
+  insane_mode_az     = "${var.region}${var.az1}"
+  ha_insane_mode_az  = "${var.region}${var.az2}"
 }
 
 # HA Transit GW
@@ -40,8 +40,8 @@ resource "aviatrix_transit_gateway" "ha" {
   ha_subnet          = aviatrix_vpc.default.subnets[6].cidr
   ha_gw_size         = var.instance_size
   connected_transit  = true
-  tag_list = [
-    "Auto-StartStop-Enabled:",
-  ]
+  insane_mode        = var.insane_mode
+  insane_mode_az     = "${var.region}${var.az1}"
+  ha_insane_mode_az  = "${var.region}${var.az2}"
 }
 

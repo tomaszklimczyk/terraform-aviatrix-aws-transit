@@ -37,6 +37,9 @@ key | default | value
 --- | --- | ---
 instance_size | t3.small | Size of the transit gateway instances
 ha_gw | true | Set to true to false te deploy a single transit GW.
+insane_mode | false | Set to true to enable insane mode encryption
+az1 | "a" | concatenates with region to form az names. e.g. eu-central-1a. Used for insane mode only.
+az2 | "b" | concatenates with region to form az names. e.g. eu-central-1b. Used for insane mode only.
 
 ### Outputs
 This module will return the following objects:
