@@ -1,28 +1,28 @@
 variable "region" {
-    description = "The AWS region to deploy this module in"
-    type = string
+  description = "The AWS region to deploy this module in"
+  type        = string
 }
 
 variable "cidr" {
-    description = "The CIDR range to be used for the VPC"
-    type = string
+  description = "The CIDR range to be used for the VPC"
+  type        = string
 }
 
 variable "aws_account_name" {
-    description = "The AWS account name, as known by the Aviatrix controller"
-    type = string
+  description = "The AWS account name, as known by the Aviatrix controller"
+  type        = string
 }
 
 variable "instance_size" {
-    description = "AWS Instance size for the Aviatrix gateways"
-    type = string
-    default = "t3.small"
+  description = "AWS Instance size for the Aviatrix gateways"
+  type        = string
+  default     = "t3.small"
 }
 
 variable "ha_gw" {
-    description = "Boolean to determine if module will be deployed in HA or single mode"
-    type = bool
-    default = true
+  description = "Boolean to determine if module will be deployed in HA or single mode"
+  type        = bool
+  default     = true
 }
 
 variable "insane_mode" {
