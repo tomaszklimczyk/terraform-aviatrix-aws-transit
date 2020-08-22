@@ -18,7 +18,7 @@ module "transit_aws_1" {
 
   cidr = "10.1.0.0/20"
   region = "eu-west-1"
-  aws_account_name = "AWS"
+  account = "AWS"
 }
 ```
 
