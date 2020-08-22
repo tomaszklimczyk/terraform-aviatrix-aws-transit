@@ -35,7 +35,7 @@ The following variables are optional:
 
 key | default | value
 --- | --- | ---
-name | avx-<region>-transit | Provide a custom name for VPC and Gateway resources. Result will be avx-<name>-transit.
+name | avx-\<region\>-transit | Provide a custom name for VPC and Gateway resources. Result will be avx-<name>-transit.
 instance_size | t3.small | Size of the transit gateway instances
 ha_gw | true | Set to true to false te deploy a single transit GW.
 insane_mode | false | Set to true to enable insane mode encryption
