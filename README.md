@@ -28,13 +28,14 @@ The following variables are required:
 key | value
 --- | ---
 region | AWS region to deploy the transit VPC in
-aws_account_name | The AWS accountname on the Aviatrix controller, under which the controller will deploy this VPC
+account | The AWS accountname on the Aviatrix controller, under which the controller will deploy this VPC
 cidr | The IP CIDR wo be used to create the VPC.
 
 The following variables are optional:
 
 key | default | value
 --- | --- | ---
+name | avx-<region>-transit | Provide a custom name for VPC and Gateway resources. Result will be avx-<name>-transit.
 instance_size | t3.small | Size of the transit gateway instances
 ha_gw | true | Set to true to false te deploy a single transit GW.
 insane_mode | false | Set to true to enable insane mode encryption

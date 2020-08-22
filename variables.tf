@@ -8,7 +8,7 @@ variable "cidr" {
   type        = string
 }
 
-variable "aws_account_name" {
+variable "account" {
   description = "The AWS account name, as known by the Aviatrix controller"
   type        = string
 }
@@ -38,4 +38,9 @@ variable "az1" {
 variable "az2" {
   type    = string
   default = "b"
+}
+
+variable "name" {
+  type    = string
+  default = ""
 }
