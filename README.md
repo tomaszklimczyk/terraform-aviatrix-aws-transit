@@ -22,7 +22,7 @@ with ha_gw set to false, the following will be deployed:
 ```
 module "transit_aws_1" {
   source  = "terraform-aviatrix-modules/aws-transit/aviatrix"
-  version = "v1.0.2"
+  version = "v1.1.0"
 
   cidr = "10.1.0.0/20"
   region = "eu-west-1"
@@ -44,7 +44,7 @@ The following variables are optional:
 key | default | value
 --- | --- | ---
 name | avx-\<region\>-transit | Provide a custom name for VPC and Gateway resources. Result will be avx-\<name\>-transit.
-instance_size | t3.small | Size of the transit gateway instances
+instance_size | t3.medium | Size of the transit gateway instances
 ha_gw | true | Set to true to false te deploy a single transit GW.
 insane_mode | false | Set to true to enable insane mode encryption
 az1 | "a" | concatenates with region to form az names. e.g. eu-central-1a. Used for insane mode only.
