@@ -16,7 +16,7 @@ variable "account" {
 variable "instance_size" {
   description = "AWS Instance size for the Aviatrix gateways"
   type        = string
-  default     = "t3.small"
+  default     = "t3.medium"
 }
 
 variable "ha_gw" {
