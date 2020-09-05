@@ -3,12 +3,20 @@
 ### Description
 This module deploys a VPC and a set of Aviatrix transit gateways.
 
+### Compatibility
+Module version | Terraform version | Controller version | Terraform provider version
+:--- | :--- | :--- | :---
+v1.1.0 | 0.12 | | 
+v1.0.2 | 0.12 | | 
+v1.0.1 | 0.12 | |
+v1.0.0 | 0.12 | |
+
 ### Diagram
-<img src="https://dhagens-repository-images-public.s3.eu-central-1.amazonaws.com/terraform-aviatrix-aws-transit/module-aviatrix-transit-vpc-for-aws-ha.png"  height="250">
+<img src="https://github.com/terraform-aviatrix-modules/terraform-aviatrix-aws-transit/blob/master/img/transit-vpc-aws-ha.png?raw=true">
 
 with ha_gw set to false, the following will be deployed:
 
-<img src="https://dhagens-repository-images-public.s3.eu-central-1.amazonaws.com/terraform-aviatrix-aws-transit/module-aviatrix-transit-vpc-for-aws.png"  height="250">
+<img src="https://github.com/terraform-aviatrix-modules/terraform-aviatrix-aws-transit/blob/master/img/transit-vpc-aws.png?raw=true">
 
 ### Usage Example
 ```

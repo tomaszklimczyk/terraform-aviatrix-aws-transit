@@ -16,7 +16,7 @@ variable "account" {
 variable "instance_size" {
   description = "AWS Instance size for the Aviatrix gateways"
   type        = string
-  default     = "t3.small"
+  default     = "t3.medium"
 }
 
 variable "ha_gw" {
@@ -26,33 +26,37 @@ variable "ha_gw" {
 }
 
 variable "insane_mode" {
-  type    = bool
-  default = false
+  description = "Set to true to enable Aviatrix high performance encryption."
+  type        = bool
+  default     = false
 }
 
 variable "az1" {
-  type    = string
-  default = "a"
+  description = "Concatenates with region to form az names. e.g. eu-central-1a. Only used for insane mode"
+  type        = string
+  default     = "a"
 }
 
 variable "az2" {
-  type    = string
-  default = "b"
+  description = "Concatenates with region to form az names. e.g. eu-central-1b. Only used for insane mode"
+  type        = string
+  default     = "b"
 }
 
 variable "name" {
-  type    = string
-  default = ""
+  description = "Name for this spoke VPC and it's gateways"
+  type        = string
+  default     = ""
 }
 
 variable "connected_transit" {
-  description = ""
+  description = "Set to false to disable connected transit."
   type        = bool
   default     = true
 }
 
 variable "active_mesh" {
-  description = ""
+  description = "Set to false to disable active mesh."
   type        = bool
   default     = true
 }
