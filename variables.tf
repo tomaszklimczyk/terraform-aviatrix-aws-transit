@@ -26,33 +26,37 @@ variable "ha_gw" {
 }
 
 variable "insane_mode" {
+  description = "Set to true to enable Aviatrix high performance encryption."  
   type    = bool
   default = false
 }
 
 variable "az1" {
+  description = "Concatenates with region to form az names. e.g. eu-central-1a. Only used for insane mode"
   type    = string
   default = "a"
 }
 
 variable "az2" {
+  description = "Concatenates with region to form az names. e.g. eu-central-1b. Only used for insane mode"  
   type    = string
   default = "b"
 }
 
 variable "name" {
+  description = "Name for this spoke VPC and it's gateways"  
   type    = string
   default = ""
 }
 
 variable "connected_transit" {
-  description = ""
+  description = "Set to false to disable connected transit."
   type        = bool
   default     = true
 }
 
 variable "active_mesh" {
-  description = ""
+  description = "Set to false to disable active mesh."
   type        = bool
   default     = true
 }
