@@ -23,6 +23,7 @@ resource "aviatrix_transit_gateway" "single" {
   connected_transit        = var.connected_transit
   enable_hybrid_connection = var.hybrid_connection
   bgp_manual_spoke_advertise_cidrs  = var.bgp_manual_spoke_advertise_cidrs
+  enable_learned_cidrs_approval = var.learned_cidr_approval
   insane_mode              = var.insane_mode
   insane_mode_az           = var.insane_mode ? "${var.region}${var.az1}" : ""
 }
@@ -43,6 +44,7 @@ resource "aviatrix_transit_gateway" "ha" {
   connected_transit        = var.connected_transit
   enable_hybrid_connection = var.hybrid_connection
   bgp_manual_spoke_advertise_cidrs  = var.bgp_manual_spoke_advertise_cidrs
+  enable_learned_cidrs_approval = var.learned_cidr_approval
   insane_mode              = var.insane_mode
   insane_mode_az           = var.insane_mode ? "${var.region}${var.az1}" : ""
   ha_insane_mode_az        = var.insane_mode ? "${var.region}${var.az2}" : ""
