@@ -1,7 +1,7 @@
 #Transit VPC
 resource "aviatrix_vpc" "default" {
   cloud_type           = 1
-  name                 = length(var.name) > 0 ? "avx-${var.name}-transit" : "avx-${var.region}-transit"
+  name                 = local.name
   region               = var.region
   cidr                 = var.cidr
   account_name         = var.account
@@ -29,4 +29,3 @@ resource "aviatrix_transit_gateway" "default" {
   insane_mode_az                   = local.insane_mode_az
   ha_insane_mode_az                = var.ha_gw ? local.ha_insane_mode_az : null
 }
-
