@@ -1,7 +1,7 @@
 #Transit VPC
 resource "aviatrix_vpc" "default" {
   cloud_type           = 1
-  name                 = length(var.name) > 0 ? "avx-${var.name}-transit" : "avx-${var.region}-transit"
+  name                 = local.name
   region               = var.region
   cidr                 = var.cidr
   account_name         = var.account
@@ -9,44 +9,23 @@ resource "aviatrix_vpc" "default" {
   aviatrix_transit_vpc = true
 }
 
-# Single Transit GW
-resource "aviatrix_transit_gateway" "single" {
-  count                            = var.ha_gw ? 0 : 1
+#Transit GW
+resource "aviatrix_transit_gateway" "default" {
   enable_active_mesh               = var.active_mesh
   cloud_type                       = 1
   vpc_reg                          = var.region
-  gw_name                          = length(var.name) > 0 ? "avx-${var.name}-transit" : "avx-${var.region}-transit"
+  gw_name                          = local.name
   gw_size                          = var.instance_size
   vpc_id                           = aviatrix_vpc.default.vpc_id
   account_name                     = var.account
-  subnet                           = var.insane_mode ? cidrsubnet(aviatrix_vpc.default.cidr, 10, 4) : aviatrix_vpc.default.subnets[4].cidr
+  subnet                           = local.subnet
+  ha_subnet                        = var.ha_gw ? local.ha_subnet : null
+  ha_gw_size                       = var.ha_gw ? var.instance_size : null
   connected_transit                = var.connected_transit
   enable_hybrid_connection         = var.hybrid_connection
   bgp_manual_spoke_advertise_cidrs = var.bgp_manual_spoke_advertise_cidrs
   enable_learned_cidrs_approval    = var.learned_cidr_approval
   insane_mode                      = var.insane_mode
-  insane_mode_az                   = var.insane_mode ? "${var.region}${var.az1}" : ""
+  insane_mode_az                   = local.insane_mode_az
+  ha_insane_mode_az                = var.ha_gw ? local.ha_insane_mode_az : null
 }
-
-# HA Transit GW
-resource "aviatrix_transit_gateway" "ha" {
-  count                            = var.ha_gw ? 1 : 0
-  enable_active_mesh               = var.active_mesh
-  cloud_type                       = 1
-  vpc_reg                          = var.region
-  gw_name                          = length(var.name) > 0 ? "avx-${var.name}-transit" : "avx-${var.region}-transit"
-  gw_size                          = var.instance_size
-  vpc_id                           = aviatrix_vpc.default.vpc_id
-  account_name                     = var.account
-  subnet                           = var.insane_mode ? cidrsubnet(aviatrix_vpc.default.cidr, 10, 4) : aviatrix_vpc.default.subnets[4].cidr
-  ha_subnet                        = var.insane_mode ? cidrsubnet(aviatrix_vpc.default.cidr, 10, 8) : aviatrix_vpc.default.subnets[6].cidr
-  ha_gw_size                       = var.instance_size
-  connected_transit                = var.connected_transit
-  enable_hybrid_connection         = var.hybrid_connection
-  bgp_manual_spoke_advertise_cidrs = var.bgp_manual_spoke_advertise_cidrs
-  enable_learned_cidrs_approval    = var.learned_cidr_approval
-  insane_mode                      = var.insane_mode
-  insane_mode_az                   = var.insane_mode ? "${var.region}${var.az1}" : ""
-  ha_insane_mode_az                = var.insane_mode ? "${var.region}${var.az2}" : ""
-}
-
