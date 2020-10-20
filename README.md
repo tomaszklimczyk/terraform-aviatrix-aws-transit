@@ -6,6 +6,7 @@ This module deploys a VPC and a set of Aviatrix transit gateways.
 ### Compatibility
 Module version | Terraform version | Controller version | Terraform provider version
 :--- | :--- | :--- | :---
+v2.0.0 | 0.12 | >=6.2 | >=0.2.17
 v1.1.1 | 0.12 | |
 v1.1.0 | 0.12 | | 
 v1.0.2 | 0.12 | | 
@@ -57,6 +58,7 @@ learned_cidr_approval | false | Switch to true to enable learned CIDR approval
 active_mesh | true | Set to false to disable active_mesh
 prefix | true | Boolean to enable prefix name with avx-
 suffix | true | Boolean to enable suffix name with -transit
+enable_segmentation | false | Switch to true to enable transit segmentation
 
 ### Outputs
 This module will return the following objects:
