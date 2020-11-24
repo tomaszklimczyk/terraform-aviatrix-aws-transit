@@ -97,6 +97,18 @@ variable "enable_segmentation" {
   default     = false
 }
 
+variable "bgp_ecmp" {
+  description = "Enable Equal Cost Multi Path (ECMP) routing for the next hop. Default value: false."
+  type        = bool
+  default     = false
+}
+
+variable "enable_advertise_transit_cidr" {
+  description = "Switch to enable/disable advertise transit VPC network CIDR. Default value: false."
+  type        = bool
+  default     = false
+}
+
 locals {
   lower_name        = length(var.name) > 0 ? replace(lower(var.name), " ", "-") : replace(lower(var.region), " ", "-")
   prefix            = var.prefix ? "avx-" : ""
